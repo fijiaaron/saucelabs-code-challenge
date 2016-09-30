@@ -1,0 +1,33 @@
+
+Assuming you are still interested in the opportunity at Sauce Labs, the next step in the process is a coding challenge, which is described below. You will have 1 week (so that you have a weekend) to complete it. If you have any questions, please contact leo@saucelabs.com and me ( jean@saucelabs.com).  (Leo is on PTO this week. I can get answers from other people if needed)
+
+Part 1
+
+Write some test cases against saucelabs.com using Sauce Labs. (Sign up for a free trial)
+1. Clicking Pricing -> Verify indiviual plan is present and costs $49.99
+2. Go to guinea pig page (https://saucelabs.com/test/guinea-pig) -> check first box -> and fill out email field
+
+You must use one of these combinations to write the tests: (otherwise it's too easy to find a sample online)
+Selenium, JS-CucumberJS-WD.js
+Selenium, JS-CucumberJS-WebdriverJS
+Selenium, Intern.js
+
+Keep your code clean.
+
+Upload to github and send to leo@saucelabs.com and jean@saucelabs.com
+
+Part 2:
+
+Coding assignment #2:
+
+1. Add another test case to guineapig.feature. It should click the "i am a link"
+2. "Parallelize" the framework.
+i.e. the two test cases in guineapig.feature and the one test case in pricingplan.feature should run in parallel. 3 VM's on Sauce should be spun up at once. The test suite (all 3 test cases) should only take as long as the slowest / longest test case to finish.
+
+Technologies / Methods chosen to achieve this parallelization is important and part of this exercise.
+Chose the best technologies or methods.
+
+Extra Credit / Brownie Points: If you can run 3 test cases on 4 different browser/os combinations all in parallel (i.e. send 12 tests to sauce labs at once.)
+
+Best,
+Jean

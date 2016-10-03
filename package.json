@@ -1,7 +1,7 @@
 {
   "name": "saucelabs-code-challenge",
-  "version": "0.0.1",
-  "description": "demonstrate using sauce labs parallelizationwq",
+  "version": "0.0.8",
+  "description": "demonstrate using sauce labs parallelization",
   "author": "Aaron Evans <aarone@one-shore.com>",
   "license": "UNLICENSED",
   "repository": {
@@ -9,17 +9,18 @@
     "url": "git+https://github.com/fijiaaron/saucelabs-code-challenge.git"
   },
   "scripts": {
-    "test": "mocha",
+    "test": "mocha --require=test/setup.js",
     "selenium": "selenium-standalone install && selenium-standalone start"
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
     "chai-webdriver": "^1.2.0",
-    "mocha": "^3.1.0",
-    "selenium-webdriver": "^2.42.0"
+    "mocha": "^3.1.0"
   },
   "dependencies": {
+    "promise": "^7.1.1",
     "selenium-standalone": "^5.7.2",
-    "selenium-webdriver": "^2.53.0"
+    "selenium-webdriver": "^2.42.0"
   }
 }

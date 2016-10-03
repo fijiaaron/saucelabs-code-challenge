@@ -1,25 +1,58 @@
-var GuineaPig = require('../lib/saucelabs/GuineaPig.js');
+//guinea_pig_test.js
 
-var chai = require('chai');
-var expect = chai.expect;
+var GuineaPig = require("../lib/saucelabs/GuineaPig");
+var WebDriverWrapper = require("../lib/WebDriverWrapper");
 
-var webdriver = require('selenium-webdriver');
-by = webdriver.By,
-until = webdriver.until;
+
+// var chai = require("chai");
+// chai.use(require("chai-webdriver"));
+// var expect = chai.expect;
+
+// var chrome = require('selenium-webdriver/chrome');
+// var path = require('chromedriver').path;
+
+var webdriver = require("selenium-webdriver");
+// var by = webdriver.By;
+// var until = webdriver.until;
+
+// var driver = new webdriver.Builder()
+// 	.usingServer('http://localhost:4444/wd/hub')
+// 	.withCapabilities(webdriver.Capabilities.chrome())
+// 	.build();
 
 var driver = new webdriver.Builder()
-    .forBrowser('firefox')
-    .build();
+	.usingServer('http://localhost:4444/wd/hub')
+	.withCapabilities(webdriver.Capabilities.chrome())
+	.build();
+
+// driver = new WebDriverWrapper().get_webdriver_instance("chrome");
 
 
-describe( "Sauce Labs" , ()=> {
+describe( "Sauce Labs" , function() {
 
-	describe( "Guinea Pig" , ()=> {
+	describe( "Guinea Pig" , function() {
 
-		it ("should open in the browser", ()=> {
+		before( "setup webdriver", function() {			
+			driver.get("https://saucelabs.com/test/guinea-pig")
+		});
+
+		it ("should open in the browser", function(done) {
 
 			var cuy = new GuineaPig(driver);
+			console.log(cuy.url);
 
+				driver.getTitle().then( function(title) {
+					expect(title).to.eventually.equal("I am a page title");
+				})
+
+			done();
+			
+		});
+
+
+		after( "shut down webdriver", function() {
+			
+			driver.quit()
 
 		});
 	});

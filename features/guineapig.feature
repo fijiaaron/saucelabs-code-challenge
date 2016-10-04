@@ -1,3 +1,0 @@
-@GuineaPig
-
-Feature: Guinea Pig

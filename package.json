@@ -5,7 +5,7 @@
   "author": "Aaron Evans <aarone@one-shore.com>",
   "license": "UNLICENSED",
   "scripts": {
-    "test": "cucumber"
+    "test": "cucumberjs"
   },
   "repository": {
     "type": "git",
@@ -16,7 +16,11 @@
     "chai-as-promised": "^6.0.0",
     "chai-webdriver": "^1.2.0",
     "chai-webdriver-promised": "github:fijiaaron/chai-webdriver-promised",
+    "chai-webelement": "github:benmosher/chai-webelement",
+    "chromedriver": "^2.24.1",
     "cucumber": "^1.3.1",
+    "geckodriver": "^1.1.3",
+    "selenium-cucumber-js": "^1.2.3",
     "selenium-webdriver": "^2.53.3"
   }
 }

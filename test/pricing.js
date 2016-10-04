@@ -1,7 +1,5 @@
 "use strict";
 
-var Promise = require("promise");
-
 var webdriver = require("selenium-webdriver");
 var By = webdriver.By;
 var until = webdriver.until;
@@ -10,17 +8,27 @@ var browser = new webdriver.Builder()
 		.withCapabilities({'browserName': 'firefox' })
 		.build();
 
+browser.manage().timeouts().implicitlyWait(30000);
+browser.manage().timeouts().pageLoadTimeout(120000)
+
 var chai = require("chai");
+
 var chaiAsPromised = require("chai-as-promised");
 chai.use(chaiAsPromised);
+
 var chaiWebDriver = require("chai-webdriver");
 var chaiWebDriverPromised = require("chai-webdriver-promised");
-chai.use(chaiWebDriverPromised(browser, 1000));
+chai.use(chaiWebDriverPromised(browser, 5000));
+
+var chaiSmoothie = require('chai-smoothie');
+chai.use(require('chai-smoothie'));
+
 var expect = chai.expect;
 var should = chai.should();
 
 var SauceLabsDriver = require("../lib/saucelabs/SauceLabsDriver.js");
 var sauce = new SauceLabsDriver(browser, "https://www.saucelabs.com");
+	
 
 sauce.homePage.open();
 
@@ -53,7 +61,7 @@ browser.findElement(sauce.pricingPage.price_for_plan("Individual"))
 		.getText()
 		.then(function(price) {
 			console.log("got price:", price);
-			console.log("expecting:", 49)
-		});
+			console.log("expecting:", 49);
+			// price.should.equal(49);
 
 browser.quit();

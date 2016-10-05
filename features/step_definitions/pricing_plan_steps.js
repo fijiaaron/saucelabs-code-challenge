@@ -2,12 +2,6 @@
 
 "use strict";
 
-var chai = require("chai");
-var chaiAsPromised = require("chai-as-promised");
-chai.use(chaiAsPromised);
-
-var expect = chai.expect;
-var should = chai.should();
 
 function pricing_plan_steps()
 {
@@ -38,14 +32,14 @@ function pricing_plan_steps()
 		console.log("expected price: ", expected_price);
 		console.log("for plan: ", plan);
 
-		var price_for_plan = this.sauce.pricingPage.price_for_plan(plan);
-
-		this.sauce.homePage.getText(price_for_plan)
+		this.sauce.pricingPage.getPriceForPlan(plan)
 			.then(function(price) {
 				console.log("got price:", price);
 				console.log("expecting:", expected_price);
 				price.should.equal(expected_price);
 			});
+
+		this.sauce.pricingPage.getPriceForPlan(plan).should.eventually.equal(expected_price);
 
 		callback();
 	});

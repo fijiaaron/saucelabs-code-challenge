@@ -4,29 +4,21 @@
 
 var webdriver = require('selenium-webdriver');
 
-var PWD = process.env.PWD;
+var WebDriverBuilder = require(PWD + "/lib/WebDriverBuilder.js");
 var SauceLabsDriver = require(PWD + "/lib/saucelabs/SauceLabsDriver.js");
-var settings = require(PWD + "/settings.js");
+var GuineaPig = require(PWD + "/lib/saucelabs/GuineaPig.js");
 
-console.log(settings);
-
-
-var driver = new webdriver.Builder()
-	.usingServer(settings.selenium.remote.url)
-	.withCapabilities(settings.selenium.capabilities)
-	.build();
 
 function CustomWorld()
 {
-	this.settings = settings;
 	this.webdriver = webdriver;
 	this.by = webdriver.By;
 	this.until = webdriver.until;
 
-	this.driver = driver
-	this.sauce = new SauceLabsDriver(this.driver, "https://www.saucelabs.com");
-};
+	this.driver = WebDriverBuilder.build_from_settings(settings);
 
-// module.exports.World = CustomWorld;
+	this.sauce = new SauceLabsDriver(this.driver, settings.saucelabs.baseUrl);
+	this.cuy = new GuineaPig(this.driver, settings.saucelabs.baseUrl);
+};
 
 module.exports = function() { this.World = CustomWorld; }

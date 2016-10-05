@@ -64,7 +64,5 @@ browser.findElement(by.id("fbemail"))
 			console.log("got email address: " + value);
 		});
 
-
-
 browser.sleep(2000);
 browser.quit();

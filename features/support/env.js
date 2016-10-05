@@ -2,8 +2,16 @@
 
 "use strict";
 
-var PWD = process.env.PWD;
-var settings = require(PWD + "/settings.js");
+global.chai = require("chai");
+chai.use(require("chai-as-promised"));
+global.expect = chai.expect;
+global.should = chai.should();
+
+global.PWD = process.env.PWD;
+global.settings = require(PWD + "/settings.js");
+
+// console.log("SETTINGS", settings);
+
 
 function env()
 {

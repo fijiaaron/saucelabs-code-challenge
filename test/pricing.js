@@ -29,7 +29,6 @@ var should = chai.should();
 var SauceLabsDriver = require("../lib/saucelabs/SauceLabsDriver.js");
 var sauce = new SauceLabsDriver(browser, "https://www.saucelabs.com");
 	
-
 sauce.homePage.open();
 
 browser.getTitle()

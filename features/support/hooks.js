@@ -2,30 +2,55 @@
 
 "use strict";
 
-var driver = require('./world.js').driver;
+var webdriver = require('selenium-webdriver');
+var SauceLabsDriver = require(PWD + "/lib/saucelabs/SauceLabsDriver.js");
+var GuineaPig = require(PWD + "/lib/saucelabs/GuineaPig.js");
 
 var hooks = function hooks ()
 {
-	this.World = require('../support/world.js')
+	this.BeforeFeatures(function (event)
+	{
+		// console.log("BEFORE FEATURES");
+	});
+
+	this.BeforeFeature(function(scenario) 
+	{
+		// console.log("BEFORE FEATURE:", "close browser");
+	});
+
+	this.BeforeScenario(function(scenario) 
+	{
+		// console.log("BEFORE SCENARIO:", "close browser");
+	});
 
 	this.Before(function(scenario)
 	{
-		console.log("BEFORE");
+		// console.log("BEFORE:", "close browser");
 		return this.driver.manage().deleteAllCookies();
+
 	});
 
 	this.After(function(scenario) 
 	{
-		console.log("AFTER");
+		// console.log("AFTER:", "close browser");
 		return this.driver.quit();
 	});
 
 
-	this.registerHandler('AfterFeatures', function (event)
+	this.AfterScenario(function(scenario) 
 	{
-		console.log("AFTER ALL FEATURES");
+		// console.log("AFTER SCENARIO:", "close browser");
 	});
 
+	this.AfterFeature(function(scenario) 
+	{
+		// console.log("AFTER FEATURE:", "close browser");
+	});
+
+	this.AfterFeatures(function (event)
+	{
+		// console.log("AFTER  FEATURES");
+	});
 }
 
 module.exports = hooks;

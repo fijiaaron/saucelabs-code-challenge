@@ -11,8 +11,8 @@ var settings = {
 		},
 		timeout: 60000,
 		remote: true,
-		get_remote_url: function() { return settings.standalone.server.url },
-		// get_remote_url: function() { return settings.saucelabs.server.get_url(); }
+		// get_remote_url: function() { return settings.standalone.server.url },
+		get_remote_url: function() { return settings.saucelabs.server.get_url(); }
 	},
 	standalone:
 	{

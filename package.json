@@ -5,9 +5,9 @@
   "author": "Aaron Evans <aarone@one-shore.com>",
   "license": "UNLICENSED",
   "scripts": {
-    "test": "cucumberjs",
     "selenium-server": "selenium-standalone install && selenium-standalone start",
-    "parallel-tests": "node run_parallel_tests.js"
+    "test": "cucumberjs",
+    "tests-parallel": "./node_modules/cucumber-parallel/bin/cucumber-parallel ./features  -f json:results/parallel-test-results.json --parallel  scenarios"
   },
   "repository": {
     "type": "git",
@@ -16,14 +16,11 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
-    "chai-webdriver": "^1.2.0",
-    "chai-webdriver-promised": "github:fijiaaron/chai-webdriver-promised",
-    "chai-webelement": "github:benmosher/chai-webelement",
     "chrome": "^0.1.0",
     "chromedriver": "^2.24.1",
     "cucumber": "^1.3.1",
+    "cucumber-parallel": "^0.1.11",
     "geckodriver": "^1.1.3",
-    "multi-cuke": "^0.12.4",
     "selenium-cucumber-js": "^1.2.3",
     "selenium-standalone": "^5.7.2",
     "selenium-webdriver": "^2.53.3"

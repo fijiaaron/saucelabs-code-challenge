@@ -26,3 +26,17 @@ set environment variables for Sauce Labs username and accesskey
 ```
 SAUCELABS_USER_NAME=$mysername SAUCELABS_ACCESS_KEY=$myaccesskey npm test
 ```
+
+to run tests using a local webdriver, first start selenium server
+
+```
+npm run selenium-server
+```
+
+to run tests in parallel:
+
+```
+npm run tests-parallel
+```
+
+It will run scenarios in multiple browser windows at the same time. 

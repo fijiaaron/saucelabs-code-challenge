@@ -6,7 +6,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "test": "cucumberjs",
-    "selenium-server": "selenium-standalone install && selenium-standalone start"
+    "selenium-server": "selenium-standalone install && selenium-standalone start",
+    "parallel-tests": "node run_parallel_tests.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "chromedriver": "^2.24.1",
     "cucumber": "^1.3.1",
     "geckodriver": "^1.1.3",
+    "multi-cuke": "^0.12.4",
     "selenium-cucumber-js": "^1.2.3",
     "selenium-standalone": "^5.7.2",
     "selenium-webdriver": "^2.53.3"

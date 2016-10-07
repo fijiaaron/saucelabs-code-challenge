@@ -2,13 +2,13 @@
 
 "use strict";
 
-var GuineaPig = require(PWD + "/lib/saucelabs/GuineaPig.js");
 
 function guinea_pig_steps()
 {
 
 	this.Given(/^I am on the Guinea Pig page$/, function (callback)
 	{
+		this.cuy = this.sauce.getPage("Guinea Pig");
 		this.cuy.open();
 		this.driver.getTitle().should.eventually.equal(this.cuy.title);
 
@@ -54,8 +54,6 @@ function guinea_pig_steps()
 
 		callback();
 	});
-
-
 
 
 }

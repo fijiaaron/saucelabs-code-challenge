@@ -6,8 +6,6 @@ var webdriver = require('selenium-webdriver');
 
 var WebDriverBuilder = require(PWD + "/lib/WebDriverBuilder.js");
 var SauceLabsDriver = require(PWD + "/lib/saucelabs/SauceLabsDriver.js");
-var GuineaPig = require(PWD + "/lib/saucelabs/GuineaPig.js");
-
 
 function CustomWorld()
 {
@@ -18,7 +16,7 @@ function CustomWorld()
 	this.driver = WebDriverBuilder.build_from_settings(settings);
 
 	this.sauce = new SauceLabsDriver(this.driver, settings.saucelabs.baseUrl);
-	this.cuy = new GuineaPig(this.driver, settings.saucelabs.baseUrl);
+	this.cuy = this.sauce.getPage("Guinea Pig");
 };
 
 module.exports = function() { this.World = CustomWorld; }

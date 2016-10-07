@@ -2,9 +2,6 @@
 
 "use strict";
 
-var webdriver = require('selenium-webdriver');
-var SauceLabsDriver = require(PWD + "/lib/saucelabs/SauceLabsDriver.js");
-var GuineaPig = require(PWD + "/lib/saucelabs/GuineaPig.js");
 
 var hooks = function hooks ()
 {
